@@ -7,7 +7,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
    class << self
   # Returns the hash digest of the given string.
   def digest(string)
@@ -20,7 +20,7 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
   
-   def remembe
+   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, 
     User.digest(remember_token))
