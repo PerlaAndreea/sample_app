@@ -1,0 +1,12 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+amazon:
+  service: S3
+  access_key_id:     <%= ENV['AKIAWI4MBZ3ZG5QQ6GNX'] %>
+  secret_access_key: <%= ENV['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'] %>
+  region:            <%= ENV['us-east-1'] %>
+  bucket:            <%= ENV['perla-bucket'] %>
